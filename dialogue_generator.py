@@ -26,6 +26,8 @@ class DialogueTree:
             result = {}
             result["id"] = node._id
             result["line"] = node.main_line
+            result["name"] = node.name
+            result["picture"] = node.picture
             result["function"] = node.function
             result["parameters"] = node.parameters
             result["break"] = node.break_talk
@@ -47,11 +49,13 @@ class DialogueRoot:
 class DialogueNode:
     _id = 0
 
-    def __init__(self, main_line, function=None, parameters=None, break_talk=False):
+    def __init__(self, main_line, name=None, picture=None, function=None, parameters=None, break_talk=False):
         self._id = DialogueNode._id
         DialogueNode._id += 1
 
         self.main_line = main_line
+        self.name = name
+        self.picture = picture
         self.function = function
         self.parameters = parameters
         self.break_talk = break_talk
